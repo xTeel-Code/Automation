@@ -2,14 +2,19 @@ from pathlib import Path
 import os
 import shutil
 
-downloads_path = str('C:\\Users\\keksd\\Downloads')
-torrent_path = str('C:\\Users\\keksd\\Downloads\\torrents')
-exe_path = str('C:\\Users\\keksd\\Downloads\\exes')
-zip_path = str('C:\\Users\\keksd\\Downloads\\zipFiles')
-word_path = str('C:\\Users\\keksd\\Downloads\\wordDocuments')
-pdf_path = str('C:\\Users\\keksd\\Downloads\\PDFs')
-pictures = str('C:\\Users\\keksd\\Pictures\\Saved Pictures\\')
-isos = str('C:\\Users\\keksd\\Downloads\\iso')
+user_path_list = os.getcwd().split('\\')
+print(user_path_list)
+
+
+
+downloads_path = str('C:\\Users\\'+ user_path_list[2] +'\\Downloads')
+torrent_path = str('C:\\Users\\'+ user_path_list[2] +'\\Downloads\\torrents')
+exe_path = str('C:\\Users\\'+ user_path_list[2] +'\\Downloads\\exes')
+zip_path = str('C:\\Users\\'+ user_path_list[2] +'\\Downloads\\zipFiles')
+word_path = str('C:\\Users\\'+ user_path_list[2] +'\\Downloads\\wordDocuments')
+pdf_path = str('C:\\Users\\'+ user_path_list[2] +'\\Downloads\\PDFs')
+pictures = str('C:\\Users\\'+ user_path_list[2] +'\\Pictures\\Saved Pictures\\')
+isos = str('C:\\Users\\'+ user_path_list[2] +'\\Downloads\\iso')
 paths = [torrent_path, exe_path, zip_path, word_path, pdf_path, pictures, isos] 
 def ensure_dir(dir):
     try:
