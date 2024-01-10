@@ -1,11 +1,10 @@
 from pathlib import Path
 import os
 import shutil
+import keyboard
+
 
 user_path_list = os.getcwd().split('\\')
-print(user_path_list)
-
-
 
 downloads_path = str('C:\\Users\\'+ user_path_list[2] +'\\Downloads')
 torrent_path = str('C:\\Users\\'+ user_path_list[2] +'\\Downloads\\torrents')
@@ -16,12 +15,13 @@ pdf_path = str('C:\\Users\\'+ user_path_list[2] +'\\Downloads\\PDFs')
 pictures = str('C:\\Users\\'+ user_path_list[2] +'\\Pictures\\Saved Pictures\\')
 isos = str('C:\\Users\\'+ user_path_list[2] +'\\Downloads\\iso')
 paths = [torrent_path, exe_path, zip_path, word_path, pdf_path, pictures, isos] 
+
 def ensure_dir(dir):
     try:
         os.makedirs(dir)
         print("Done")
     except:
-        print("Folder Exists")
+        print("Folder "+ dir +" Exists")
 for x in paths:
     ensure_dir(x)
 
@@ -40,3 +40,5 @@ for file in os.listdir(downloads_path):
         shutil.move(downloads_path + '//' + file, pdf_path)
     if file.endswith('.jpg') or file.endswith('.jpeg') or file.endswith('.png'):
         shutil.move(downloads_path + '//' + file, pdf_path)
+    print("Sorting Completed Successfully")
+input("Press Enter to exit")
