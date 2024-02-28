@@ -36,9 +36,6 @@ if exists(recipePath) == False:
 
     cards = soup.find_all(class_='card__title-text')
     links = soup.find_all('a', href=re.compile('https://www.simplyrecipes.com/'))
-#    with open('recipes.csv2', 'w') as file:
- #       for card in cards:
-  #          file.write("\n "+card.text)
     recipeScrape = {'Recipe': [], 'Link' : []}
     for card, link in zip(cards,links):
             recipeScrape['Recipe'].append(card.get_text())
